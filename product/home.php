@@ -67,7 +67,7 @@ include('view/layout.php');
                         <div class="form-row">
                             <div class="form-group col-md-4">
                                 <label for="name">Name</label>
-                              <input type="text" name="name" class="form-control" id="name">
+                                <input type="text" name="name" class="form-control" id="name" required="required">
                               <input type="hidden" name="addForm" value="1">
                             </div>
                             <div class="form-group col-md-4">
