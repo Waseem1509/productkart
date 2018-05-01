@@ -10,7 +10,7 @@
 include('public/config.php');
 
 if (!empty($_POST['filterForm']) && $_POST['filterForm'] == 1) {
-    $curl = curl_init(URL . 'productproject/product-cart/product/controller/filter.php');
+    $curl = curl_init(URL . 'product-cart/product/controller/filter.php');
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($curl, CURLOPT_POSTFIELDS, $_POST);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -18,7 +18,7 @@ if (!empty($_POST['filterForm']) && $_POST['filterForm'] == 1) {
     curl_close($curl);
     $result = json_decode($resp, true);
 } else {
-    $curl = curl_init(URL . 'productproject/product-cart/product/controller/filter.php');
+    $curl = curl_init(URL . 'product-cart/product/controller/filter.php');
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     $resp = curl_exec($curl);
     curl_close($curl);
@@ -27,7 +27,7 @@ if (!empty($_POST['filterForm']) && $_POST['filterForm'] == 1) {
 
 $count = 1;
 if (!empty($_POST['addForm']) && $_POST['addForm'] == 1) {
-    $curl = curl_init(URL . 'productproject/product-cart/product/controller/create.php');
+    $curl = curl_init(URL . 'product-cart/product/controller/create.php');
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($curl, CURLOPT_POSTFIELDS, $_POST);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -37,7 +37,7 @@ if (!empty($_POST['addForm']) && $_POST['addForm'] == 1) {
 }
 
 if (!empty($_POST['id']) && $_POST['id'] > 0) {
-    $curl = curl_init(URL . 'productproject/product-cart/product/controller/delete.php');
+    $curl = curl_init(URL . 'product-cart/product/controller/delete.php');
     curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($curl, CURLOPT_POSTFIELDS, $_POST);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -121,7 +121,7 @@ include('view/layout.php');
             <div class="panel panel-default">
             <div class="panel-heading">FILTER</div>
             <div class="panel-body">
-                <form action="<?php echo URL;?>productproject/product/home.php" method="POST">
+                <form action="<?php echo URL;?>product/home.php" method="POST">
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="name">Name</label>
@@ -198,7 +198,7 @@ include('view/layout.php');
                 <td><?php echo $value['brand']; ?></td>
                 <td><?php echo $value['color']; ?></td>
                 <td><?php echo $value['create_date']; ?></td>
-                <td><form action="<?php echo URL;?>productproject/product/home.php" method="POST"><input type="submit" class="btn btn-danger pull-right" value="Delete"/>
+                <td><form action="<?php echo URL;?>product/home.php" method="POST"><input type="submit" class="btn btn-danger pull-right" value="Delete"/>
                     <input type="hidden" name="id" value="<?php echo $value['id']?>"></form></td>
             </tr>
           <?php }} else { ?>
@@ -232,7 +232,7 @@ include('view/layout.php');
                 search.abort();
                 search = $.ajax({
                     type: "POST",
-                    url: "<?php echo URL;?>productproject/product-cart/product/filter.php",
+                    url: "<?php echo URL;?>product-cart/product/filter.php",
                     data: {
                         'brand' : value,
                         'filterForm': $('#filterForm').val()
@@ -253,7 +253,7 @@ include('view/layout.php');
                                     str = str + "<td>" + value + "</td>";
                                 }
                             });
-                            str += "<td><form action='<?php echo URL;?>productproject/product/home.php' method='POST'><input type='submit' class='btn btn-danger pull-right' value='Delete'/> <input type='hidden' name='id' value='" + obj[0]['id'] + "'></form></td>";
+                            str += "<td><form action='<?php echo URL;?>product/home.php' method='POST'><input type='submit' class='btn btn-danger pull-right' value='Delete'/> <input type='hidden' name='id' value='" + obj[0]['id'] + "'></form></td>";
                             str += "</tr>";
                         }
 

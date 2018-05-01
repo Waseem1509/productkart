@@ -6,4 +6,8 @@
  * and open the template in the editor.
  */
 
-define('URL', 'http://localhost/');
+$a = dirname( dirname( dirname(__FILE__) ) );
+$arr = explode("/", $a);
+$last = $arr[count($arr) - 1];
+
+define('URL', 'http://localhost/' . $last . "/");
