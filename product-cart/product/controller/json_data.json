@@ -1,0 +1,9 @@
+{
+    "id":"1",
+    "name": "television1",
+    "rating": "5",
+    "price": "51.65",
+    "discount": "6.2",
+    "brand": "vu1",
+    "color": "brown"
+}
