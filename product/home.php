@@ -232,7 +232,7 @@ include('view/layout.php');
                 search.abort();
                 search = $.ajax({
                     type: "POST",
-                    url: "<?php echo URL;?>product-cart/product/filter.php",
+                    url: "<?php echo URL;?>product-cart/product/controller/filter.php",
                     data: {
                         'brand' : value,
                         'filterForm': $('#filterForm').val()
@@ -240,7 +240,7 @@ include('view/layout.php');
                     dataType: "text",
                     success: function(msg){
                         var obj = JSON.parse(msg);
-                        console.log(obj);
+                        //console.log(obj);
                         var j = 1;
                         var str = "";
                         for(var i = 0; i < obj.length; i++) {
